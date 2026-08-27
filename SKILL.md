@@ -1,6 +1,6 @@
 ---
 name: "github-agent-collaboration"
-description: "GitHub coordination for humans and coding agents with bounded WIP, independent review, reconciliation, and human gates."
+description: "Bound technical loops and require an evidence-based authority decision."
 ---
 
 # GitHub agent collaboration
@@ -40,6 +40,21 @@ A human gate is valid only when a non-technical decision owner can understand th
 - Agents must resolve technical design choices themselves within existing product, security, scope, and risk constraints. Escalate only the residual authority decision, if one remains.
 
 Clarity test: “Can the named human understand the options, consequences, recommendation, and authority being requested without knowing the proposed implementation?” If no, do not escalate it as a human gate.
+
+## Finite technical decisions
+
+Technical disagreement must converge to a recorded decision; it must neither loop indefinitely nor become an incomprehensible human escalation.
+
+- The repository profile names a technical decision authority and fallback authority before work starts. They must be distinct from the disputed implementation author where practical.
+- Allow at most two review/remediation rounds on substantially the same finding. Then freeze a deduplicated finding ledger with evidence and executable acceptance tests.
+- Use one fresh, bounded worker/reviewer recovery attempt that receives the acceptance criteria and evidence, not either side's preferred conclusion.
+- Resolve in this order: explicit acceptance and security constraints; reproducible test evidence; documented repository architecture; then the named technical decision authority.
+- After the recovery attempt, the technical decision authority records one binding outcome: accept one approach, require a bounded prerequisite or re-scope, or stop/park the work because a named external capability is absent.
+- A dissent may reopen the decision only with new reproducible evidence of an acceptance, security, or compatibility violation. Repeated opinion is not new evidence.
+- Parking is an active decision, not limbo: record the failed approaches, owner, unblock condition, next review trigger, and what independent work continues. Remove assignees that are no longer actively executing.
+- Escalate to a human only for a plain-language authority consequence such as scope, priority, cost, downtime, exposure, cancellation, stable promotion, or deployment. Never ask the human to select an implementation mechanism.
+
+Decision record: problem; frozen evidence; options considered; selected outcome; deciding authority; acceptance tests; dissent and disposition; next action; revisit trigger.
 
 ## Action loop
 

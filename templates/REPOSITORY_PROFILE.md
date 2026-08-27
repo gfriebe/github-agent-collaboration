@@ -24,5 +24,8 @@
   - acceptance signal:
   - permissions:
 - Reviewer availability rule:
+- Technical decision authority:
+- Fallback technical decision authority:
+- Maximum same-finding review/remediation rounds: 2
 - Preview/manual-acceptance procedure:
 - Known hosting-plan enforcement limitations:
