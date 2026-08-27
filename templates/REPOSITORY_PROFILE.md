@@ -1,0 +1,28 @@
+# Repository profile
+
+- Repository:
+- Stable/default branch:
+- Integration branch:
+- Merge strategy:
+- Required checks:
+- Human-only promotion gate:
+- Human-only deployment gate:
+- Project owner/number:
+- Status field/options:
+- Priority field/options:
+- Dependency representation:
+- Coordination label:
+- Human-decision label:
+- Reconciliation cadence:
+- Claim lease:
+- Participants:
+  - actor:
+  - GitHub account:
+  - branch prefix:
+  - runtime adapter:
+  - dispatch route:
+  - acceptance signal:
+  - permissions:
+- Reviewer availability rule:
+- Preview/manual-acceptance procedure:
+- Known hosting-plan enforcement limitations:
