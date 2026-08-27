@@ -55,6 +55,13 @@ class BundleTests(unittest.TestCase):
         self.assertIn("Only Ready issues may be claimed", state)
         self.assertIn("Head changes invalidate approval", state)
 
+    def test_human_gates_require_plain_language_authority_choices(self):
+        skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("A human gate is valid only when a non-technical decision owner", skill)
+        self.assertIn("Put technical mechanisms in optional supporting detail", skill)
+        self.assertIn("it is not a human decision", skill)
+        self.assertIn("Agents must resolve technical design choices themselves", skill)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -27,6 +27,20 @@ Read the repository profile first. Load only the reference needed for the curren
 - Promotion to stable/default and deployment are separate human gates.
 - Human input is for genuine authority decisions, not ordinary technical uncertainty or slow execution.
 
+## Human-decision clarity
+
+A human gate is valid only when a non-technical decision owner can understand the choice and its consequences without translating implementation jargon.
+
+- State the decision first in plain language: what outcome the human is authorizing, rejecting, prioritizing, funding, exposing, or accepting.
+- Explain why the decision belongs to the human and what happens under each option.
+- Put technical mechanisms in optional supporting detail after the plain-language question, never in place of it.
+- Include one recommended option with a plain-language reason.
+- Apply the repository's human-decision label only after this clarity test passes, and keep it synchronized with `Blocked` status, the decision record, and the exact next action.
+- If the question cannot be reduced to an outcome choice a non-technical owner can reasonably make, it is not a human decision. Reclassify it as a technical blocker, architecture task, investigation, or agent-owned decomposition.
+- Agents must resolve technical design choices themselves within existing product, security, scope, and risk constraints. Escalate only the residual authority decision, if one remains.
+
+Clarity test: “Can the named human understand the options, consequences, recommendation, and authority being requested without knowing the proposed implementation?” If no, do not escalate it as a human gate.
+
 ## Action loop
 
 1. Read live issues, PRs, checks, formal review requests, Project fields, dependencies, and execution availability.
