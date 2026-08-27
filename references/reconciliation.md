@@ -29,10 +29,14 @@ Maintain durable watermarks with overlap. Advance only after a complete scan. On
 - No duplicate Status system exists.
 - Comments never override conflicting native state.
 
-## Finite recovery
+## Finite recovery and technical authority
 
 At 20 minutes without acknowledgement/artifact/review/merge, post one evidence-based state request. After another 60 minutes, recheck and request hand-back or reassign where possible. Never repeat nudges without a state change or threshold.
 
-After repeated non-converging technical fixes, publish a deduplicated finding ledger and use one fresh worker/reviewer recovery attempt before human escalation.
+Allow at most two review/remediation rounds on substantially the same finding. Then freeze a deduplicated finding ledger with evidence and executable acceptance tests and use one fresh, bounded worker/reviewer recovery attempt.
+
+After that attempt, the repository profile's technical decision authority must record one binding outcome: accept one approach; require a bounded prerequisite or re-scope; or stop/park because a named external capability is absent. A dissent reopens the decision only with new reproducible evidence of an acceptance, security, or compatibility violation.
+
+A parked issue records failed approaches, owner, unblock condition, review trigger, and continuing independent work. It is not a human gate unless a separate plain-language scope, priority, cost, downtime, exposure, or cancellation decision is required.
 
 Escalate immediately only for active security incidents, secret exposure, destructive migration authority, licensing/publication, incompatible product/security choices, stable promotion, or deployment.

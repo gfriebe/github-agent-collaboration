@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+## 0.3.0 - 2026-08-27
+
+- Bound substantially identical review/remediation findings to two rounds before independent recovery.
+- Require one fresh, evidence-led worker/reviewer recovery attempt.
+- Add named primary and fallback technical decision authorities who record a binding outcome after recovery.
+- Prevent passive limbo: parking requires an explicit owner, unblock condition, review trigger, and continuing-work record.
+- Permit reopening only for new reproducible acceptance, security, or compatibility evidence.
+
 ## 0.2.0 - 2026-08-27
 
 - Require human gates to be stated as plain-language outcome choices that a non-technical decision owner can understand.

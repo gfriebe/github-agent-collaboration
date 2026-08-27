@@ -62,6 +62,18 @@ class BundleTests(unittest.TestCase):
         self.assertIn("it is not a human decision", skill)
         self.assertIn("Agents must resolve technical design choices themselves", skill)
 
+    def test_technical_disagreements_have_finite_binding_resolution(self):
+        skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+        reconciliation = (ROOT / "references/reconciliation.md").read_text(encoding="utf-8")
+        profile = (ROOT / "templates/REPOSITORY_PROFILE.md").read_text(encoding="utf-8")
+        self.assertIn("Allow at most two review/remediation rounds", skill)
+        self.assertIn("one fresh, bounded worker/reviewer recovery attempt", skill)
+        self.assertIn("technical decision authority records one binding outcome", skill)
+        self.assertIn("Repeated opinion is not new evidence", skill)
+        self.assertIn("Finite recovery and technical authority", reconciliation)
+        self.assertIn("Technical decision authority:", profile)
+        self.assertIn("Fallback technical decision authority:", profile)
+
 
 if __name__ == "__main__":
     unittest.main()
