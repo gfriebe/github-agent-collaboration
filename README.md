@@ -29,17 +29,33 @@ tests/
 
 `SKILL.md` contains the essential operating loop. Detailed transitions, recovery behavior, and adapter boundaries are loaded only when needed.
 
-## Installation
+## Install
 
-Pin an immutable release rather than tracking `main` automatically.
+Use a tagged release, not the changing `main` branch.
 
-1. Download or clone a tagged release.
-2. Copy the bundle into the skill directory supported by your agent runtime.
-3. Create a repository profile from `templates/REPOSITORY_PROFILE.md` outside the portable bundle.
-4. Configure the runtime adapter for authentication, polling, dispatch, acceptance signals, and health reporting.
-5. Verify the loaded release and checksum before enabling claims.
+1. Download the `github-agent-collaboration-vX.Y.Z.tar.gz` asset from the release.
+2. Verify it against the accompanying `.sha256` file.
+3. Extract it into the skills directory supported by your agent runtime.
+4. Reload the agent and confirm that it reports the expected version and checksum.
 
-OpenClaw installations should use Skill Workshop and require explicit human application. Hermes installations need a durable reconciliation scheduler and an issue-scoped worker dispatcher; a comment-only watcher is insufficient.
+That installs the portable skill. To use it for a repository, copy
+`templates/REPOSITORY_PROFILE.md`, fill in that repository's GitHub workflow and
+agent details, and keep the completed profile outside the portable bundle.
+
+## Runtime integration
+
+Most users can stop after installation and repository-profile setup. Runtime
+maintainers must additionally connect their platform's GitHub authentication,
+scheduled reconciliation, worker dispatch, acceptance signal, and health
+reporting.
+
+- OpenClaw: install updates through Skill Workshop and require explicit human
+  application.
+- Hermes: provide a durable reconciliation scheduler and an issue-scoped worker
+  dispatcher. A watcher that can only comment must not claim work automatically.
+
+Do not auto-update from `main`. Test and explicitly adopt each pinned release.
+During a compatible mixed-version rollout, the older version governs new claims.
 
 ## Design boundaries
 
